@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="love.css" />
+  </head>
+  <body>
+    <!-- PASSWORD LOCK SCREEN -->
+    <div id="lockScreen">
+      <div class="lock-box">
+        <div class="lock-icon">🔐</div>
+
+        <h1>Private Love 💕</h1>
+
+        <p>Enter the password to open this website</p>
+
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter password"
+        />
+
+        <button id="unlockBtn">UNLOCK ❤️</button>
+
+        <p id="passwordMessage"></p>
+      </div>
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+
+    <div class="password-modal" id="passwordModal">
+      <div class="password-modal-box">
+        <button class="close-password" id="closePasswordModal">×</button>
+
+        <div class="lock-icon">🔐</div>
+
+        <h2>Change Password</h2>
+
+        <p class="modal-description">Keep your little secret safe 💕</p>
+
+        <!-- CURRENT PASSWORD -->
+
+        <label for="currentPassword"> Current Password </label>
+
+        <input
+          type="password"
+          id="currentPassword"
+          placeholder="Current Password"
+        />
+
+        <!-- NEW PASSWORD -->
+
+        <label for="newPassword"> New Password</label>
+
+        <input type="password" id="newPassword" placeholder="New Password" />
+
+        <!-- CONFIRM PASSWORD -->
+
+        <label for="confirmPassword"> Confirm New Password</label>
+
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="Confirm New Password"
+        />
+
+        <button class="save-password-btn" id="savePasswordBtn">
+          CHANGE PASSWORD ❤️
+        </button>
+
+        <p id="changePasswordMessage"></p>
+      </div>
+    </div>
+
+    <main id="app">
+      <!-- Page 1 -->
+      <section class="page active" id="proposalPage">
+        <div class="card proposal-card">
+          <div class="first-page-texts">
+            <h1>Welcome My Dear Love</h1>
+            <p>
+              This little website was especially made for you. Every page holds
+              feelings, a message, or a surprise.
+            </p>
+          </div>
+          <div class="center-box btn yes-btn" id="calendarPage"></div>
+        </div>
+      </section>
+
+      <!-- calender -->
+      <section class="page" id="calendar">
+        <div class="calendar">
+          <div class="calendar-header">
+            <button id="prevMonth">‹</button>
+
+            <h2 id="monthYear"></h2>
+
+            <button id="nextMonth">›</button>
+          </div>
+
+          <div class="weekDays">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+          </div>
+
+          <div class="calendar-days" id="calendarDays"></div>
+          <div id="dateComment"></div>
+        </div>
+
+        <div class="note-overlay" id="noteOverlay">
+          <div class="special-note" id="specialNote">
+            <span class="note-heart">💌</span>
+            <p id="noteMessage"></p>
+            <small>Click anywhere outside this note to close ❤️</small>
+          </div>
+        </div>
+
+        <div class="calendar-btn-row">
+          <button class="btn yes-btn" id="calendarBackBtn">Back</button>
+          <button class="btn yes-btn" id="yesBtn">Come Forward</button>
+        </div>
+      </section>
+
+      <!-- page 2 -->
+      <section class="page" id="lovePage">
+        <div class="card love-page">
+          <div class="top-image-wrap">
+            <img src="iLoveYou.gif" alt="" />
+          </div>
+
+          <h1>I Love You NAJWA❤️</h1>
+          <p>
+            Dear Love, every second with you is a celebration. You are the spark
+            that makes my world so much brighter!
+          </p>
+
+          <div class="btn-box">
+            <button class="btn yes-btn" id="lovePageBackBtn">Back</button>
+            <button class="btn primary-btn" id="seeGiftsBtn">
+              SEE MY GIFTS
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- page 3 -->
+      <section class="page" id="giftsPage">
+        <div class="card gifts-card">
+          <h1>Something for you my Dear Love</h1>
+
+          <div class="gift-grid">
+            <button class="gift-card" id="quizCard">
+              <img class="gif-images" src="thanks-love-gIF.gif" alt="" />
+              <h3>LOVE QUIZ</h3>
+            </button>
+
+            <button class="gift-card" id="letterCard">
+              <img
+                class="gif-images"
+                src="Long Distance Love GIF by Chibird.gif"
+                alt=""
+              />
+              <h3>Letter</h3>
+            </button>
+
+            <button class="gift-card" id="specialCard">
+              <img class="gif-images" src="gif.gif" alt="" />
+              <h3>Something Special</h3>
+            </button>
+          </div>
+
+          <div class="gifts-btn-box">
+            <button class="btn yes-btn" id="SpecialBackBtn">Back</button>
+            <button class="btn primary-btn" id="finallyBtn">FINALLY</button>
+            <button id="changePasswordBtn" class="btn primary-btn">
+              🔐 CHANGE PASSWORD
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- page 4 -->
+      <section class="page" id="quizPage">
+        <div class="card quiz-card">
+          <h1>Quiz for You</h1>
+
+          <div class="quiz-box" id="quizBox">
+            <div class="progress" id="quizProgress">Question 1 out of 5</div>
+            <h2 id="questionText"></h2>
+            <div class="answers" id="answers"></div>
+            <p class="quiz-feedback" id="quizFeedback"></p>
+          </div>
+
+          <div class="quiz-result hidden" id="quizResult">
+            <p>Yay! You passed the test! You really love me</p>
+            <p class="score" id="scoreText"></p>
+          </div>
+
+          <button class="btn back-btn" id="quizBackBtn">BACK</button>
+        </div>
+      </section>
+
+      <!-- page 5 -->
+      <section class="page" id="letterPage">
+        <div class="card letter-page-card">
+          <h1>A letter for You</h1>
+
+          <article class="letter-paper">
+            <p>My Dear Love,</p>
+
+            <p>
+              I LOVE YOU MY LOVE. You are my calm, my happiness and my heart.
+              Every smile of mine somehow leads back to you. I feel so lucky to
+              have you in my life, my heart chose you and i keep choosing you
+              every day. With you, forever feels safe, warm, and real. You are
+              my favorite feeling.
+            </p>
+
+            <p>Forever Yours</p>
+          </article>
+
+          <button class="btn back-btn" id="letterBackBtn">BACK</button>
+        </div>
+      </section>
+
+      <!-- page 6 -->
+      <section class="page" id="specialPage">
+        <div class="card gallery-card">
+          <h1>I LOVE YOU SO MUCH</h1>
+
+          <div class="gallery-grid">
+            <figure class="photo-card">
+              <img src="na1.jpg" alt="" />
+              <figcaption>My JANN</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="img.jpg" alt="" />
+              <figcaption>N❤️A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na2.jpg" alt="" />
+              <figcaption>🙂</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="img3.jpg" alt="" />
+              <figcaption>A❤️N</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="img1.jpg" alt="" />
+              <figcaption>//\\//</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na3.jpg" alt="" />
+              <figcaption>My Favorite Person</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na4.jpg" alt="" />
+              <figcaption>😊</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="img2.jpg" alt="" />
+              <figcaption>//\\</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na5.jpg" alt="" />
+              <figcaption>Forever Love</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na6.jpg" alt="" />
+              <figcaption>My Lady</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na7.jpg" alt="" />
+              <figcaption>😎</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na8.jpg" alt="" />
+              <figcaption>My Happiness</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na9.jpg" alt="" />
+              <figcaption>Always You</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na10.jpg" alt="" />
+              <figcaption>We Together</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na11.jpg" alt="" />
+              <figcaption>One Team😎</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na12.jpg" alt="" />
+              <figcaption>Made for Each Other</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na13.jpg" alt="" />
+              <figcaption>A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na14.jpg" alt="" />
+              <figcaption>Qalbi❤️</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na15.jpg" alt="" />
+              <figcaption>A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na16.jpg" alt="" />
+              <figcaption>Hayathi</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na17.jpg" alt="" />
+              <figcaption>Rouhi</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na18.jpg" alt="" />
+              <figcaption>Habibti</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na19.jpg" alt="" />
+              <figcaption>A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na20.jpg" alt="" />
+              <figcaption>My Peace🕊️</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na21.jpg" alt="" />
+              <figcaption>My Spoozhmai</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na22.jpg" alt="" />
+              <figcaption>Gorgeous</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na23.jpg" alt="" />
+              <figcaption>A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na24.jpg" alt="" />
+              <figcaption>SweetHeart💖</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na25.jpg" alt="" />
+              <figcaption>Stunning</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na26.jpg" alt="" />
+              <figcaption>A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na27.jpg" alt="" />
+              <figcaption>One in Billions</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na28.jpg" alt="" />
+              <figcaption>My Heart❤️</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na29.jpg" alt="" />
+              <figcaption>A for N</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na30.jpg" alt="" />
+              <figcaption>N for A</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na31.jpg" alt="" />
+              <figcaption>My Favorite Person</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="na32.jpg" alt="" />
+              <figcaption>My Favorite Person</figcaption>
+            </figure>
+          </div>
+
+          <div class="special-btn-row">
+            <button class="btn primary-btn" id="galleryBackBtn">BACK</button>
+            <button class="btn primary-btn" id="surpriseBtn">For You</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- page 7 -->
+
+      <section class="page" id="videoPage">
+        <div class="card video-card">
+          <h1>You are my forever Love</h1>
+
+          <div class="video-wrap">
+            <video id="loveVideo" controls playsinline preload="metadata">
+              <source src="VID-20261021-WA0025.mp4" type="video/mp4" />
+              Your browser does not support the video element
+            </video>
+
+            <!-- <div class="video-placeholder" id="videoPlaceholder">
+              <span>🎬</span>
+              <p>Put your video in <strong>assets/love-video.mp4</strong></p>
+            </div> -->
+          </div>
+
+          <button class="btn back-btn" id="videoBackBtn">BACK</button>
+        </div>
+      </section>
+
+      <!-- IMAGE Gallery Page -->
+
+      <section class="page" id="galleryPage">
+        <div class="card gallery-container" id="imgsGallery">
+          <h1>Collection of Your Photography❤️</h1>
+
+          <div class="imgs-gallery">
+            <div class="gallery-item item-1">
+              <img src="image.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-1">
+              <img src="img1.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-2">
+              <img src="img19.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-3">
+              <img src="img2.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-4">
+              <img src="img4.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-5">
+              <img src="img5.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-6">
+              <img src="img6.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-7">
+              <img src="img7.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img8.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-9">
+              <img src="img9.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-10">
+              <img src="img10.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img11.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img12.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img13.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img14.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img15.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img16.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img17.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img18.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img3.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img20.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img21.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img22.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img23.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img24.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img25.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img26.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img27.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img28.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img29.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img30.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img31.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img32.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img33.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img34.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img35.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img36.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img37.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img38.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img39.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img40.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img41.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img42.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img43.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img44.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img45.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img46.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img47.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img48.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img49.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img50.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img51.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img52.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img53.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img54.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img55.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img56.jpg" alt="" />
+            </div>
+            <div class="gallery-item item-8">
+              <img src="img57.jpg" alt="" />
+            </div>
+          </div>
+
+          <button class="btn yes-btn" id="surpriseBackBtn">Back</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="love.js"></script>
+  </body>
+</html>
