@@ -319,7 +319,7 @@ const quizQuestion = [
       "Always winning arguments",
       "Never discussing problems",
     ],
-    correct: 2,
+    correct: 0,
   },
 
   {
