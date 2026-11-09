@@ -64,14 +64,7 @@
 
 .first-page-texts h1 {
   font-size: 60px;
-  background: linear-gradient(
-    to right,
-    #fc72ff,
-    #8f68ff,
-    #487bff,
-    #8f68ff,
-    #fc72ff
-  );
+  background: linear-gradient(125 deg, #966702 0%, #61711f 48%, #60a0ff 100%);
   background-size: 200%;
   background-clip: text;
   -webkit-background-clip: text;
