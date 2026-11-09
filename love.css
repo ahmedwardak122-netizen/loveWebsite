@@ -64,7 +64,17 @@
 
 .first-page-texts h1 {
   font-size: 60px;
-  background: linear-gradient(125 deg, #966702 0%, #61711f 48%, #60a0ff 100%);
+  background: linear-gradient(90deg, #de6877, #dd2c4d, #750b1b);
+  /* background: linear-gradient(to right, #e6c5a8, #c65b6b, #9f2138); */
+  /* background: linear-gradient(
+    225deg,
+    #4a0e17 0%,
+    #d1495b 10%,
+    #4a0e17 30%,
+    #8b2635 100%
+  ); */
+  /* background: linear-gradient(135deg, #d1495b 0%, #4a0e17 50%, #8b2635 100%); */
+  /* background: linear-gradient(125deg, #d4a373 10%, #21a82a 50%, #0f552a 100%); */
   background-size: 200%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -79,7 +89,11 @@
 
 .first-page-texts p {
   font-size: 19px;
-  color: white;
+  background: linear-gradient(90deg, #fff1d6, #f5d6b3, #e38c74);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
 }
 #calendarPage {
   width: 230px;
